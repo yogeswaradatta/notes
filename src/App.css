@@ -1,38 +1,476 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* GLOBAL STYLES */
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-button {
+  background-color: #16008B;
+  border-radius: 50px;
+  width: 80px;
+  height: 80px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  margin-left: 260px;
+  bottom: 60px;
+  z-index: 1;
+
+}
+
+
+
+
+.App {
+  display: flex;
+}
+
+/* SIDEBAR STYLES */
+.app-sidebar {
+  width: 25%;
+  min-width: 250px;
+  height: 100%;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  font-family: Roboto;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  margin-top: 40px;
+  font-size: 20px;
+  padding: 0px 20px 30px 20px;
+}
+
+.app-sidebar-notes {
+ 
+  overflow-y: auto;
+  height: 100vh ;
+}
+
+.app-sidebar-group {
+  padding: 10px;
+  font-family: Roboto;
+  font-size: 21px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+}
+
+.app-sidebar-group:hover {
+  background-color: #2f2f2f53 ;
+  border-radius: 7px;
+}
+
+.app-sidebar-initials{
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  display:flex;
+  justify-content: center;
+  padding: 13px;
+  color: white;
+  margin-left: 30px;
+}
+.app-sidebar-name{
+  padding: 13px 13px 13px 20px;
+}
+
+.app-sidebar-group.selected {
+  background-color: #2f2f2f80;
+}
+
+
+/* POPUP STYLES */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: Roboto;
+  z-index: 1;
+}
+
+.popup-content {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 30px 30px 10px 30px;
+}
+
+.popup-content h2 {
+  font-size: 25px;
+}
+
+.popup-content div {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.popup-content input {
+  margin: 20px;
+  font-size: 16px;
+}
+
+.popup-content-group input {
+  width: 300px;
+  padding: 10px 15px;
+  border-radius: 17px;
+  border: 1.7px solid #ccc;
+  font-family: Roboto;
+  margin-left: 25px;
+}
+
+.popup-content-color {
+  display: flex;
+  margin-top: 10px;
+}
+
+.color-circle-container {
+  margin-left: 23px;
+  display: flex;
+}
+
+.color-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.popup-content button {
+  font-family: Roboto;
+  background-color: #001F8B;
+  color: #fff;
+  padding: 5px 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  margin: 30px 10px 10px 325px;
+}
+
+
+.app-image{
+  margin-left: 650px;
+  margin-top: 120px;
+  font-family: roboto;
+
+}
+
+.app-content{
+  width: 600px;
+  font-size: 20px;
+  margin-left: 40px;
+  
+}
+.app-content h1{
+  margin-left: 150px;
+  padding: 10px;
+  
+}
+
+/* main componet css*/
+
+.app-main{
+  margin-left: 384px;
+  background-color: #DAE5F5;
+  width: 100%;
+  height: 100vh;
+}
+
+ /* header css*/
+
+.preview-title-color{
+  border-radius:50px ;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  padding: 14px;
   color: white;
+  
+}
+.preview-title{
+  height: 90px;
+  background-color: #001F8B;
+  display: flex;
+  padding: 9.5px 9.5px 9.5px 20px;
+  font-family: roboto;
+
+}
+.app-titlee{
+  color: white;
+  padding: 14px;
+  margin-left:5px;
+}
+/* text area css */
+.app-imagess {
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.app-image0 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-image1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
+
+.app-main-note-edit textarea:focus + .app-imagess .app-image0 {
+  display: none;
+}
+
+.app-main-note-edit textarea:focus + .app-imagess .app-image1 {
+  display: block;
+}
+.app-text{
+  resize: none;
+  width: 1089px;
+  height: 162px;
+  font-family: roboto;
+  font-size: 25px;
+  padding: 20px;
+  border-radius: 10px;
+  border-style: none;
+  
+}
+.app-main-note-edit{
+  position: fixed;
+  background-color: #001F8B;
+  height: 200px;
+  padding: 20px 20px 20px 30px;
+  width: 1152px;
+}
+
+.app-input-list {
+  width: 1150px; 
+  height: 488px;  
+  overflow: auto; 
+  padding: 40px; 
+  list-style-type: none;
+   
+}
+.app-imagess{
+  position: relative;
+  right: 30px;
+  bottom: 25px;
+}
+
+/* notes saving text area css*/
+
+.app-not {
+  margin-bottom: 10px;
+  padding: 20px 30px 20px 30px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0.1px 0.1px 10px rgba(0, 0, 0, 0.181);
+  font-size: 20px;
+  font-family: roboto;
+}
+
+.app-not-content{
+  overflow-wrap: break-word; 
+}
+
+.app-not-notes{
+  background-color: white;
+  
+  border-radius:10px;
+ 
+}
+
+.app-not-timestamp{
+  margin: 20px 0px 0px 750px;
+}
+
+.default-image-container1{
+  margin-left: 230px;
+  margin-top: 100px;
+  font-family: roboto;
+  width: 630px;
+}
+
+.default-text{
+  font-size: 22px;
+
+}
+.default-image-container1 h1{
+  font-size: 40px;
+  margin: 20px 0px 20px 175px;
+}
+
+.default-content-container2{
+  display: flex;
+  font-family: roboto;
+  margin: 180px 10px 10px 450px;
+}
+.default-text1{
+  padding-left: 10px;
+}
+.default-image1{
+  height: 18px;
+}
+.back-button{
+  display: none;
+}
+
+/* responsive css */
+
+@media (max-width: 768px) {
+  .app-sidebar {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+   
+  }
+  .initial-blank-page{
+    display: none;
+  }
+
+ .app-main {
+  width: 0vw;
+ }
+  
+  .app-sidebar-group {
+   
+    cursor: pointer;
+  }
+ 
+  .app-not-content{
+    overflow-wrap: break-word; 
+  }
+
+  .back-button{
+    display: block;
+  }
+
+.app-input-list{
+  width: 100vw;
+  height: 65vh;
+  padding: 20px;
+ 
+}
+.app-not{
+  font-size:16px ;
+  width: 89vw;
+}
+  .app-not-timestamp{
+    margin-left: 19vw;
+
+  }
+  .app-main-note-edit {
+    width: 100vw;
+    height: 25%;
+  }
+  
+  .app-text{
+    width: 85vw;
+    height: 18vh;
+    margin-top: 13px;
+    
+  }
+
+  .popup-content {
+    padding: 15px;
+    width: 310px;
+  }
+
+  .popup-content h2 {
+    font-size: 18px; 
+  }
+
+  .popup-content div {
+    font-size: 14px; 
+  }
+
+  .popup-content input {
+    width: 180px; 
+    height: 30px;
+    margin: 10px 0px 0px 10px; 
+    font-size: 11px; 
+  }
+
+  .color-circle-container {
+    margin-left: 10px;
+  }
+
+  .color-circle {
+    width: 15px; 
+    height: 15px; 
+    margin-left: 5px;
+  }
+
+  .popup-content button {
+    margin: 20px 0 10px 30px; 
+    font-size: 16px;
+    width: 200px; 
+  }
+ 
+  .app-main.overlap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  
+  }
+ 
+   .app-main {
+    opacity: 1;
+    transform: translateX(0);
+    margin-left: 0;
+  }
+
+  .app-sidebar.hidden {
+    display: none;
+  }
+  
+
+  .back-button {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+   
+  }
+ 
+ .preview-title-color{
+  margin-left: 30px;
+ }
+
+.app-main.hidden{
+  transform: translateX(0);
+}
+
+  .app-main.selected {
+    display: none;
+  }
+ 
+}
+
+
